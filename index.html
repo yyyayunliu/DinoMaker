@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DinoMaker</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <main class="stage">
+        <header class="topbar">
+          <h1>DinoMaker</h1>
+        </header>
+        <section class="viewport" aria-label="Interactive 3D dinosaur preview">
+          <canvas id="dino-canvas"></canvas>
+        </section>
+      </main>
+
+      <aside class="control-panel" aria-label="Dinosaur controls">
+        <div class="panel-actions">
+          <button id="randomize-btn" type="button">Randomize Dino</button>
+          <button id="reset-btn" type="button">Reset</button>
+          <button id="play-btn" type="button" aria-pressed="false"><span>Play walk</span></button>
+          <button id="roar-btn" type="button" aria-pressed="false"><span>Roar</span></button>
+          <button id="mesh-mode-btn" type="button" aria-pressed="false"><span>Voxel Dino</span></button>
+          <button id="auto-rotate-btn" type="button" aria-pressed="true"><span>Auto Rotate: On</span></button>
+          <button id="download-obj-btn" type="button">Download OBJ</button>
+          <a id="download-glb-link" href="models/trex_rigged_walk.glb" download>Download GLB</a>
+        </div>
+
+        <div class="control-list" id="control-list"></div>
+      </aside>
+    </div>
+
+    <script>
+      if (window.location.protocol === 'file:') {
+        document.body.innerHTML = `
+          <div style="display:grid;place-items:center;min-height:100vh;margin:0;padding:32px;font-family:Inter,system-ui,sans-serif;background:#d8d7d1;color:#171916">
+            <div style="max-width:560px;padding:24px;border:1px solid rgba(0,0,0,.14);border-radius:8px;background:rgba(255,255,255,.7)">
+              <h1 style="margin:0 0 12px;font-size:32px">Open DinoMaker with the local server</h1>
+              <p style="margin:0;line-height:1.5">This Three.js app uses Vite modules and model files, so opening <code>index.html</code> directly will not show graphics. Run <code>npm run dev</code>, then open the localhost URL shown in the terminal.</p>
+            </div>
+          </div>
+        `;
+      }
+    </script>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
